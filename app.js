@@ -24,6 +24,16 @@ todoApp.controller("todoListController", function($scope){
         }       
     };
     
+    $scope.removeCompleted = function(){
+      var oldTodos = $scope.todos;
+		$scope.todos = [];
+		angular.forEach(oldTodos, function(todo){
+			if (!todo.isDone)
+				$scope.todos.push(todo);
+		});
+		localStorage.setItem('todos', JSON.stringify($scope.todos));  
+    };
+    
     $scope.completedTodos = function(){
       var count = 0;
       angular.forEach($scope.todos, function(todo){

@@ -33,11 +33,14 @@
             <div ng-if="todos.length > 0" class="todosCount">
                 <span>Completed {{ completedTodos() }} of {{ todos.length }} </span>
             </div>
+            <div class="removeCompleted" ng-if="completedTodos() > 0">
+                <a href="" ng-click="removeCompleted()" >[Remove completed todos]</a>
+            </div>
             <ul class="list">
                 <li ng-repeat="todo in todos track by $index">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" ng-model="todo.isDone" ng-click="saveToLocalStorage()"/>
+                            <input type="checkbox" ng-model="todo.isDone"/>
                             {{ todo.taskName }}
                         </label>
                     </div>
