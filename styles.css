@@ -1,0 +1,12 @@
+.list{
+    list-style-type: none;
+    padding-left:20px;
+    padding-top:10px;
+}
+
+.todosCount{
+    margin-top: 15px;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border: 1px solid #efefef
+}

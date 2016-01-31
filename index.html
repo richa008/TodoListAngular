@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>TODO</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load styles -->
+        <link rel="stylesheet" href="lib/bootstrap.min.css" />
+        <link rel="stylesheet" href="styles.css" />
+        
+        <!-- load scripts -->
+        <script src="lib/angular.min.js"></script>
+        <script src="lib/jquery-1.11.3.min.js"></script>
+        <script src="app.js"></script>
+
+    </head>
+    <body ng-app="todoApp">
+        <header class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" >Todo List</a>
+                </div>
+            </div>
+        </header>
+        <div class="container form-group" ng-controller="todoListController">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Add a Todo" ng-model="newTodo" />
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="addTodo()">Add</button>
+                </span>
+            </div>
+            <div ng-if="todos.length > 0" class="todosCount">
+                <span>Completed {{ completedTodos() }} of {{ todos.length }} </span>
+            </div>
+            <ul class="list">
+                <li ng-repeat="todo in todos track by $index">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="todo.isDone" ng-click="saveToLocalStorage()"/>
+                            {{ todo.taskName }}
+                        </label>
+                    </div>
+                    <hr/>
+                </li>
+            </ul>
+        
+        </div>
+
+    </body>
+</html>
